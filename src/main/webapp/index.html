@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion360</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body>
-
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white text-center py-4">
+        <h1 class="text-2xl font-bold">Gestion360</h1>
+    </header>
+    <nav class="bg-blue-800">
+        <ul class="flex justify-center space-x-6 py-3">
+            <li><a href="/Gestion360" class="text-white hover:bg-blue-700 px-4 py-2 rounded border border-white border-solid">Inicio</a></li>
+            <li><a href="/Gestion360/Tareas" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Tareas</a></li>
+            <li><a href="usuarios.html" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Usuarios</a></li>
+            <li><a href="equipos.html" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Equipos</a></li>
+            <li><a href="notificaciones.html" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Notificaciones</a></li>
+        </ul>
+    </nav>
+    <main class="flex justify-center items-center min-h-screen">
+        <section class="bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
+            <h2 class="text-xl font-semibold">Bienvenido al Sistema de Gestión de Tareas</h2>
+            <p class="mt-2 text-gray-700">Utiliza el menú para navegar entre las diferentes secciones del sistema.</p>
+        </section>
+    </main>
+    <footer class="bg-blue-600 text-white text-center py-3 mt-6">
+        <p>&copy; 2025 Instituto SISE</p>
+    </footer>
 </body>
-</html> 
+</html>
