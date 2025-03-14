@@ -21,5 +21,6 @@
     <mappers>
         <!-- Para usar el XML, se referencia con 'resource' -->
         <mapper resource="dao/TareasMapper.xml"/>
+        <mapper resource="dao/UsuariosMapper.xml"/>
     </mappers>
 </configuration>

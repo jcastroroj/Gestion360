@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.UsuariosMapper">
+
+    <resultMap id="UsuariosMap" type="models.Usuarios">
+        <id column="id_usuario" property="idUsuario"/>
+        <result column="nombre_rol" property="nombreRol"/>
+        <result column="tipo_documento" property="tipoDocumento"/>
+        <result column="numero_documento" property="numeroDocumento"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nombre" property="nombre"/>
+        <result column="apellido_paterno" property="apellidoPaterno"/>
+        <result column="apellido_materno" property="apellidoMaterno"/>
+        <result column="correo" property="correo"/>
+        <result column="telefono" property="telefono"/>
+        <result column="sexo" property="sexo"/>
+        <result column="fecha_nacimiento" property="fechaNacimiento"/>
+    </resultMap>
+
+    <select id="listarUsuarios" resultMap="UsuariosMap">
+		       SELECT 
+		    U.id_usuario,
+		    R.NOMBRE AS nombre_rol,
+		    U.tipo_documento,
+		    U.numero_documento,
+		    U.username,
+		    U.password,
+		    U.nombre,
+		    U.apellido_paterno,
+		    U.apellido_materno,
+		    U.correo,
+		    U.telefono,
+		    U.sexo,
+		    U.fecha_nacimiento
+		FROM USUARIOS U
+		INNER JOIN ROLES R ON U.id_rol = R.id_rol 
+		WHERE U.estado_auditoria=1;
+    </select>
+
+</mapper>
