@@ -21,7 +21,7 @@
             <li><a href="/Gestion360/Tareas" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Tareas</a></li>
             <li><a href="/Gestion360/Usuarios" class="text-white hover:bg-blue-700 px-4 py-2 rounded border border-white">Usuarios</a></li>
             <li><a href="/Gestion360/Equipos" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Equipos</a></li>
-            <li><a href="notificaciones.html" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Notificaciones</a></li>
+            <li><a href="/Gestion360/UsuariosEquipos" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Lista de Integrantes</a></li>
         </ul>
     </nav>
 
