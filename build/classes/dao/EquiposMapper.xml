@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="dao.EquiposMapper">
+   
+    <resultMap id="EquiposMap" type="models.Equipos">
+        <id column="id_equipo" property="idEquipo"/>
+        <result column="nombre" property="nombre"/>
+        <result column="descripcion" property="descripcion"/>
+    </resultMap>
+   
+    <select id="listarEquipos" resultMap="EquiposMap">
+       			select 
+				id_equipo,
+				nombre,
+				descripcion
+				from equipos
+				where estado_auditoria = 1;
+    </select>
+</mapper>
