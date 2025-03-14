@@ -1,17 +1,18 @@
 # Titulo del proyecto: Gestion360
  Sistema de gestión de tareas del curso de lenguaje java web
+ 
  Integrantes: 
-*************
+
 - Apaza Sandagorda, Jhoandry Albino
 - Castro Rojas, Jorge Luis
 
-Alcances del proyecto
-**********************
+Alcances del proyecto:
+
 El Sistema de Gestión de Tareas está diseñado para ser una herramienta útil que facilita la organización y el seguimiento de tareas, 
 ya sean individuales o en equipo. Su propósito es mejorar la productividad y mantener un control efectivo de las actividades.
 
 Funcionalidades:
-****************
+
 1.Creación de tareas: El sistema permite crear tareas con detalles como título, descripción, fecha límite de entrega y prioridad.
 
 2.Asignación de tareas: El sistema permite asignar tareas a un usuario o a equipos de trabajo.
