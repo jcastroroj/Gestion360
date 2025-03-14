@@ -5,7 +5,7 @@
   
   <mapper namespace="dao.UsuariosEquiposMapper">
 
-    <resultMap id="UsuariosEquiposMap" type="models.Equipo">
+    <resultMap id="UsuariosEquiposMap" type="models.UsuariosEquipos">
     <result column="Equipo" property="equipo"/>
     <result column="Integrantes" property="integrantes"/>
 </resultMap>
