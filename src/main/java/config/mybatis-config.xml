@@ -23,5 +23,6 @@
         <mapper resource="dao/TareasMapper.xml"/>
         <mapper resource="dao/UsuariosMapper.xml"/>
         <mapper resource="dao/EquiposMapper.xml"/>
+        <mapper resource="dao/UsuariosEquiposMapper.xml"/>
     </mappers>
 </configuration>
