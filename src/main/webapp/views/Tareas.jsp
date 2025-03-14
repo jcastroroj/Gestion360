@@ -20,7 +20,7 @@
             <li><a href="/Gestion360" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Inicio</a></li>
             <li><a href="/Gestion360/Tareas" class="text-white hover:bg-blue-700 px-4 py-2 rounded border border-white border-solid">Tareas</a></li>
             <li><a href="/Gestion360/Usuarios" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Usuarios</a></li>
-            <li><a href="equipos.html" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Equipos</a></li>
+            <li><a href="/Gestion360/Equipos" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Equipos</a></li>
             <li><a href="notificaciones.html" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Notificaciones</a></li>
         </ul>
     </nav>
@@ -33,7 +33,7 @@
                     for (Tareas tarea : tareas) {
             %>
               <div class="flex bg-white shadow-lg w-96 p-6 rounded-lg border border-gray-300 hover:shadow-xl transition">
-    <div class="flex flex-col w-full space-y-4">
+    		<div class="flex flex-col w-full space-y-4">
         <!-- Título -->
         <h2 class="text-xl font-bold text-blue-600 text-center border-b pb-2"><%= tarea.getTitulo() %></h2>
 
