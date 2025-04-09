@@ -1,39 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión360 - Sistema de Gestión de Tareas</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión360 - Sistema de Gestión de Tareas</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" defer></script>
+
+ <style>
+    /* Eliminar margen en la barra de navegación */
+    nav {
+        margin-bottom: 0 !important;  /* Asegura que no haya margen debajo */
+    }
+
+    /* Eliminar margen superior de la sección principal */
+    main {
+        margin-top: 0 !important;  /* Asegura que el margen superior sea 0 */
+    }
+
+    /* Reducir margen superior de la sección de tarjetas */
+    section.card-container {
+        margin-top: 0 !important;  /* Elimina el margen superior de las tarjetas */
+    }
+
+    body {
+        background-image: url("images/imagen1.webp");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Estilo de los botones al pasar el mouse */
+    .shadow-lg:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Animación de fade-in */
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    footer {
+        margin-top: 40px;
+    }
+
+    /* Estilo para las tarjetas */
+    .card-container {
+        margin-top: 0 !important; /* Evitar margen extra */
+        padding-top: 0 !important; /* Eliminar cualquier padding extra en la parte superior */
+    }
+
+    .card-container .card {
+        margin-bottom: 20px;
+    }
+</style>
 </head>
 <body class="bg-gray-100 font-sans">
     <div>
-    <header class="bg-blue-900 bg-opacity-90 text-white text-center py-5 shadow-lg">
-            <h1 class="text-3xl font-extrabold flex items-center justify-center gap-3">
+        <!-- Encabezado -->
+        <header class="bg-blue-900 bg-opacity-90 text-white text-center py-5 shadow-lg">
+            <h1 class="text-3xl font-extrabold flex items-center justify-center gap-3 fade-in">
                 <i class="fas fa-tasks"></i>
                 Gestión360 - Sistema de Gestión de Tareas
             </h1>
-    </header>
-     <nav class="bg-blue-800 bg-opacity-90 shadow-md">
+        </header>
+
+        <!-- Navegación -->
+        <nav class="bg-blue-800 bg-opacity-90 shadow-md mb-0">
             <ul class="flex justify-center space-x-6 py-4">
-            <li><a href="/Gestion360"class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2 rounded border border-white border-solid"><i class="fas fa-home "></i> Inicio</a></li>
-            <li><a href="/Gestion360/Tareas" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-tasks"></i> Tareas</a></li>
-            <li><a href="/Gestion360/Usuarios"class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-users"></i> Usuarios</a></li>
-            <li><a href="/Gestion360/Equipos" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-briefcase"></i> Equipos</a></li>
-            <li><a href="/Gestion360/UsuariosEquipos" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-address-book"></i> Lista de Integrantes</a></li>
-        </ul>
+                <li><a href="/Gestion360" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2 rounded border border-white border-solid"><i class="fas fa-home "></i> Inicio</a></li>
+                <li><a href="/Gestion360/Tareas" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-tasks"></i> Tareas</a></li>
+                <li><a href="/Gestion360/Usuarios" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-users"></i> Usuarios</a></li>
+                <li><a href="/Gestion360/Equipos" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-briefcase"></i> Equipos</a></li>
+                <li><a href="/Gestion360/UsuariosEquipos" class="text-white hover:bg-blue-700 px-5 py-2 rounded transition duration-300 flex items-center gap-2"><i class="fas fa-address-book"></i> Lista de Integrantes</a></li>
+            </ul>
         </nav>
-        <main class="flex justify-center items-center min-h-[70vh]">
-            <section class="bg-white p-8 rounded-lg shadow-2xl max-w-lg text-center bg-opacity-95">
-                <h2 class="text-2xl font-bold text-gray-900">Bienvenido a Gestión360</h2>
-                <p class="mt-3 text-gray-700">Organiza y gestiona tus tareas de manera eficiente con nuestra plataforma.</p>
-                <div class="mt-5">
-                    
+
+        <!-- Main content -->
+        <main class="flex justify-center items-center min-h-[70vh] mt-0">
+            <section class="bg-white p-8 rounded-lg shadow-6xl max-w-lg text-center bg-opacity-95">
+                <h2 class="text-2xl font-bold text-gray-900 fade-in">Bienvenido a Gestión360</h2>
+                <p class="mt-3 text-gray-700 fade-in">Organiza y gestiona tus tareas de manera eficiente con nuestra plataforma.</p>
+                <div class="mt-6 fade-in">
+                    <a href="/Gestion360/Tareas" class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Gestionar Tareas</a>
                 </div>
             </section>
         </main>
-        <footer class="bg-blue-900 bg-opacity-90 text-white text-center py-4 mt-6 shadow-lg">
+
+        <!-- Características -->
+        <section class="card-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 fade-in">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card">
+                <h4 class="text-xl font-semibold text-gray-800">Administrar Tareas</h4>
+                <p class="text-gray-600">Organiza las tareas de tu equipo y mantén todo bajo control.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card">
+                <h4 class="text-xl font-semibold text-gray-800">Gestionar Usuarios</h4>
+                <p class="text-gray-600">Añade y asigna roles a los usuarios de la plataforma.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card">
+                <h4 class="text-xl font-semibold text-gray-800">Equipos</h4>
+                <p class="text-gray-600">Crea y administra equipos de trabajo dentro de la plataforma.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card">
+                <h4 class="text-xl font-semibold text-gray-800">Asignación de Tareas</h4>
+                <p class="text-gray-600">Asignación de tareas a usuarios o equipos.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card">
+                <h4 class="text-xl font-semibold text-gray-800">Notificaciones</h4>
+                <p class="text-gray-600">Recordatorios y notificaciones de tareas pendientes.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-blue-900 bg-opacity-90 text-white text-center py-4 shadow-lg">
             <p>&copy; 2025 Gestión360 - Sistema de Gestión de Tareas. Instituto SISE.</p>
         </footer>
     </div>
