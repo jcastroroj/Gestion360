@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="dao.DetalleUsuariosMapper">
+ 
+    <resultMap id="DetalleUsuariosMap" type="models.DetalleUsuarios">
+<result column="id_equipo" property="idEquipo"/>
+<result column="id_usuario" property="idUsuario"/>
+<result column="tipo_documento" property="tipoDocumento"/>
+<result column="numero_documento" property="numeroDocumento"/>
+<result column="username" property="username"/>
+<result column="nombre" property="nombre"/>
+<result column="apellido_paterno" property="apellidoPaterno"/>
+<result column="apellido_materno" property="apellidoMaterno"/>
+<result column="correo" property="correo"/>
+<result column="telefono" property="telefono"/>
+<result column="sexo" property="sexo"/>
+<result column="fecha_nacimiento" property="fechaNacimiento"/>
+</resultMap>
+ 
+    <select id="listarDetalleUsuarioEquipos" parameterType="int" resultMap="DetalleUsuariosMap">
+        SELECT 
+            UE.id_equipo,
+            U.id_usuario,
+            U.tipo_documento,
+            U.numero_documento,
+            U.username,
+            U.nombre,
+            U.apellido_paterno,
+            U.apellido_materno,
+            U.correo,
+            U.telefono,
+            U.sexo,
+            U.fecha_nacimiento
+        FROM USUARIOS U
+        INNER JOIN ROLES R ON U.id_rol = R.id_rol 
+        INNER JOIN USUARIOSEQUIPOS UE ON U.id_usuario = UE.id_usuario
+        WHERE UE.id_equipo = #{idEquipo}
+        AND U.estado_auditoria = 1
+</select>
+ 
+</mapper>

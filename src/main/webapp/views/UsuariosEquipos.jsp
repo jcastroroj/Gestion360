@@ -37,33 +37,36 @@
         <main class="px-4 py-6">
             <div class="max-w-2xl mx-auto">  
                 <%
-                    List<UsuariosEquipos> usuariosEquipos = (List<UsuariosEquipos>) request.getAttribute("usuariosEquipos");
-                    if (usuariosEquipos != null && !usuariosEquipos.isEmpty()) {
-                        int index = 0;
-                        for (UsuariosEquipos usuariosEquipo : usuariosEquipos) {
-                %>
-                <div class="bg-white rounded-lg shadow-sm mb-3 px-3 py-2 border border-gray-300">
-                    <div class="flex justify-between items-center">
-                        <h2 class="text-xl font-semibold text-blue-600 flex items-center gap-2">
-                            <i class="fas fa-users text-blue-600"></i> <%= usuariosEquipo.getEquipo() %>
-                        </h2>
-                        <button 
-                            class="text-sm text-blue-700 hover:text-blue-900 font-medium flex items-center gap-1" 
-                            onclick="toggleIntegrantes('grupo<%= index %>', this)">
-                            <i class="fas fa-chevron-down transition-transform duration-300"></i> Integrantes
-                        </button>
-                    </div>
-                    <ul id="grupo<%= index %>" class="ml-5 mt-2 text-lg text-gray-700 list-disc hidden">
-                        <%
-                            String[] integrantes = usuariosEquipo.getIntegrantes().split(",");
-                            for (String integrante : integrantes) {
-                        %>
-                            <li><%= integrante.trim() %></li>
-                        <% } %>
-                    </ul>
-                </div>
-                <%  
-                        index++;
+			    List<UsuariosEquipos> usuariosEquipos = (List<UsuariosEquipos>) request.getAttribute("usuariosEquipos");
+			    if (usuariosEquipos != null && !usuariosEquipos.isEmpty()) {
+			        int index = 0;
+			        for (UsuariosEquipos usuariosEquipo : usuariosEquipos) {
+			%>
+			    <a href="/Gestion360/detalleUsuarios?idEquipo=<%= usuariosEquipo.getIdEquipo() %>">
+			        <div class="bg-white rounded-lg shadow-sm mb-3 px-3 py-2 border border-gray-300 hover:shadow-md transition">
+			            <div class="flex justify-between items-center">
+			                <h2 class="text-xl font-semibold text-blue-600 flex items-center gap-2">
+			                    <i class="fas fa-users text-blue-600"></i> <%= usuariosEquipo.getEquipo() %>
+			                </h2>
+			                <button 
+			                    type="button"
+			                    class="text-sm text-blue-700 hover:text-blue-900 font-medium flex items-center gap-1" 
+			                    onclick="event.preventDefault(); toggleIntegrantes('grupo<%= index %>', this)">
+			                    <i class="fas fa-chevron-down transition-transform duration-300"></i> Integrantes
+			                </button>
+			            </div>
+			            <ul id="grupo<%= index %>" class="ml-5 mt-2 text-lg text-gray-700 list-disc hidden">
+			                <%
+			                    String[] integrantes = usuariosEquipo.getIntegrantes().split(",");
+			                    for (String integrante : integrantes) {
+			                %>
+			                    <li><%= integrante.trim() %></li>
+			                <% } %>
+			            </ul>
+			        </div>
+			    </a>
+			<%
+			                        index++;
                         } 
                     } else { 
                 %>

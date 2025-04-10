@@ -2,10 +2,20 @@ package models;
 
 public class UsuariosEquipos {
 	
-	 private String equipo;
+	 	private String equipo;
+	 	private int idEquipo;
 	    private String integrantes;
 
-	    public UsuariosEquipos() {}
+	    
+	    public int getIdEquipo() {
+			return idEquipo;
+		}
+
+		public void setIdEquipo(int idEquipo) {
+			this.idEquipo = idEquipo;
+		}
+
+		public UsuariosEquipos() {}
 
 	    public String getEquipo() {
 	        return equipo;
