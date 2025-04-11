@@ -30,6 +30,12 @@
         </nav>
 
         <main class="p-6">
+            <div class="text-right mb-4">
+                <a href="Usuarios?action=agregar" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300">
+                    <i class="fas fa-plus"></i> Agregar Nuevo Usuario
+                </a>
+            </div>
+
             <div class="overflow-x-auto">
                 <%
                     List<Usuarios> usuarios = (List<Usuarios>) request.getAttribute("usuarios");
@@ -50,35 +56,34 @@
                         </tr>
                     </thead>
                     <tbody class="text-sm text-gray-900">
-					    <% for (Usuarios usuario : usuarios) { %>
-					    <tr class="border-t hover:bg-gray-100 transition duration-200">
-					        <td class="px-4 py-2 font-semibold text-gray-900">
-					            <%= usuario.getNombre() %> <%= usuario.getApellidoPaterno() %> <%= usuario.getApellidoMaterno() %>
-					        </td>
-					        <td class="px-4 py-2"><%= usuario.getUsername() %></td>
-					        <td class="px-4 py-2"><%= usuario.getNombreRol() %></td>
-					        <td class="px-4 py-2"><%= usuario.getTipoDocumento() %> - <%= usuario.getNumeroDocumento() %></td>
-					        <td class="px-4 py-2"><%= usuario.getCorreo() %></td>
-					        <td class="px-4 py-2"><%= usuario.getTelefono() %></td>
-					        <td class="px-4 py-2"><%= usuario.getSexo() %></td>
-					        <td class="px-4 py-2"><%= usuario.getFechaNacimiento() %></td>
-					        <td class="px-4 py-2 flex justify-center items-center gap-3">
-					            <form action="/Gestion360/UsuariosEditar" method="get">
-					                <input type="hidden" name="idUsuario" value="<%= usuario.getIdUsuario() %>">
-					                <button type="submit" class="text-blue-600 hover:text-blue-800" title="Editar">
-					                    <i class="fas fa-edit"></i>
-					                </button>
-					            </form>
-					            <form action="/Gestion360/UsuariosEliminar" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este usuario?');">
-					                <input type="hidden" name="idUsuario" value="<%= usuario.getIdUsuario() %>">
-					                <button type="submit" class="text-red-600 hover:text-red-800" title="Eliminar">
-					                    <i class="fas fa-trash-alt"></i>
-					                </button>
-					            </form>
-					        </td>
-					    </tr>
-					    <% } %>
-					</tbody>
+                        <% for (Usuarios usuario : usuarios) { %>
+                        <tr class="border-t hover:bg-gray-100 transition duration-200">
+                            <td class="px-4 py-2 font-semibold text-gray-900">
+                                <%= usuario.getNombre() %> <%= usuario.getApellidoPaterno() %> <%= usuario.getApellidoMaterno() %>
+                            </td>
+                            <td class="px-4 py-2"><%= usuario.getUsername() %></td>
+                            <td class="px-4 py-2"><%= usuario.getNombreRol() %></td>
+                            <td class="px-4 py-2"><%= usuario.getTipoDocumento() %> - <%= usuario.getNumeroDocumento() %></td>
+                            <td class="px-4 py-2"><%= usuario.getCorreo() %></td>
+                            <td class="px-4 py-2"><%= usuario.getTelefono() %></td>
+                            <td class="px-4 py-2"><%= usuario.getSexo() %></td>
+                            <td class="px-4 py-2"><%= usuario.getFechaNacimiento() %></td>
+                            
+                            <td class="px-4 py-2 flex justify-center items-center gap-3">
+                                
+                                
+                                <!-- Botón Eliminar -->
+                                <form id="formEliminar<%= usuario.getIdUsuario() %>" action="/Gestion360/Usuarios" method="get" class="m-0" onsubmit="return mostrarModalConfirmacion(<%= usuario.getIdUsuario() %>);">
+                                    <input type="hidden" name="action" value="eliminar">
+                                    <input type="hidden" name="idUsuario" value="<%= usuario.getIdUsuario() %>">
+                                    <button type="submit" class="text-red-600 hover:text-red-800 text-lg relative" title="Eliminar">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
                 </table>
                 <div class="text-center font-bold mt-4">Total registros: <%= usuarios.size() %></div>
                 <% } else { %>
@@ -91,5 +96,11 @@
             <p>&copy; 2025 Gestión360 - Sistema de Gestión de Tareas. Instituto SISE.</p>
         </footer>
     </div>
+
+    <script>
+        function mostrarModalConfirmacion(idUsuario) {
+            return confirm("¿Estás seguro de que deseas eliminar este usuario?");
+        }
+    </script>
 </body>
 </html>

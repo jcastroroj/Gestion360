@@ -7,6 +7,7 @@
 
     <resultMap id="UsuariosMap" type="models.Usuarios">
         <id column="id_usuario" property="idUsuario"/>
+        <result column="id_rol" property="idRol"/>
         <result column="nombre_rol" property="nombreRol"/>
         <result column="tipo_documento" property="tipoDocumento"/>
         <result column="numero_documento" property="numeroDocumento"/>
@@ -40,5 +41,54 @@
 		INNER JOIN ROLES R ON U.id_rol = R.id_rol 
 		WHERE U.estado_auditoria=1;
     </select>
+    
+    <select id="obtenerUsuarioPorId" resultMap="UsuariosMap" parameterType="int">
+    SELECT 
+        U.id_usuario,
+        R.NOMBRE AS nombre_rol,
+        U.tipo_documento,
+        U.numero_documento,
+        U.username,
+        U.password,
+        U.nombre,
+        U.apellido_paterno,
+        U.apellido_materno,
+        U.correo,
+        U.telefono,
+        U.sexo,
+        U.fecha_nacimiento
+    FROM USUARIOS U
+    INNER JOIN ROLES R ON U.id_rol = R.id_rol 
+    WHERE U.estado_auditoria = 1 AND U.id_usuario = #{idUsuario};
+</select>
+    
+    <insert id="agregarUsuario" parameterType="models.Usuarios">
+    INSERT INTO USUARIOS (id_rol, tipo_documento, numero_documento, username, password, nombre, apellido_paterno, apellido_materno, correo, telefono, sexo, fecha_nacimiento)
+    VALUES (#{idRol}, #{tipoDocumento}, #{numeroDocumento}, #{username}, #{password}, #{nombre}, #{apellidoPaterno}, #{apellidoMaterno}, #{correo}, #{telefono}, #{sexo}, #{fechaNacimiento});
+   </insert>
+
+    <update id="actualizarUsuario" parameterType="models.Usuarios">
+    UPDATE USUARIOS
+    SET 
+        id_rol = #{idRol}, 
+        tipo_documento = #{tipoDocumento}, 
+        numero_documento = #{numeroDocumento}, 
+        username = #{username}, 
+        password = #{password}, 
+        nombre = #{nombre}, 
+        apellido_paterno = #{apellidoPaterno}, 
+        apellido_materno = #{apellidoMaterno}, 
+        correo = #{correo}, 
+        telefono = #{telefono}, 
+        sexo = #{sexo}, 
+        fecha_nacimiento = #{fechaNacimiento}
+    WHERE id_usuario = #{idUsuario} AND estado_auditoria = 1;
+  </update>
+  
+  <delete id="eliminarUsuario" parameterType="int">
+    UPDATE USUARIOS
+    SET estado_auditoria = 0
+    WHERE id_usuario = #{idUsuario};
+  </delete>
 
 </mapper>

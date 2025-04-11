@@ -12,11 +12,34 @@
     </resultMap>
    
     <select id="listarEquipos" resultMap="EquiposMap">
-       			select 
-				id_equipo,
-				nombre,
-				descripcion
-				from equipos
-				where estado_auditoria = 1;
+       			SELECT 
+    id_equipo,
+    nombre,
+    descripcion
+FROM equipos
+WHERE estado_auditoria = 1
+ORDER BY id_equipo ASC;
     </select>
+    
+	    <select id="buscarPorId" parameterType="int" resultMap="EquiposMap">
+		SELECT id_equipo, nombre, descripcion FROM equipos
+		WHERE id_equipo = #{idEquipo}
+	</select>
+	
+	<update id="actualizarEquipo" parameterType="models.Equipos">
+		UPDATE equipos
+		SET nombre = #{nombre}, descripcion = #{descripcion}
+		WHERE id_equipo = #{idEquipo}
+	</update>
+	
+	<update id="eliminarLogico" parameterType="int">
+		UPDATE equipos
+		SET estado_auditoria = 0
+		WHERE id_equipo = #{idEquipo}
+	</update>
+	
+	<insert id="agregarEquipo" parameterType="models.Equipos">
+    INSERT INTO equipos (nombre, descripcion)
+    VALUES (#{nombre}, #{descripcion});
+	</insert>
 </mapper>
