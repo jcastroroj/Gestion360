@@ -23,5 +23,6 @@ Funcionalidades:
 
 5.Notificaciones: El sistema envía notificaciones de cambios importantes a los usuarios.
 
-Diseño de la BD: [Diagrama_BD_GESTION360.pdf](https://github.com/user-attachments/files/19238998/Diagrama_BD_GESTION360.pdf)
+Diseño de la BD: [DIAGRAMA BD_GESTION360.pdf](https://github.com/user-attachments/files/19698422/DIAGRAMA.BD_GESTION360.pdf)
+
 
